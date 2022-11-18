@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import {
   getFilteredContacts,
   getState,
+  getContacts
 } from 'redux/contacts/contactsSelectors';
 
 import { PhoneBookStyled } from 'components/PhoneBookStyled';
@@ -11,18 +12,15 @@ import { ContactList } from 'components/ContactsList/ContactsList';
 
 const Contacts = () => {
   const contacts = useSelector(getFilteredContacts);
+  const isContacts = useSelector(getContacts);
   const { loading } = useSelector(getState);
 
   return (
     <>
       <PhoneBookStyled>
         <ContactForm />
-        <Filter />
-        {!loading && contacts.length > 0 && (
-          <>
-            <ContactList />
-          </>
-        )}
+        {isContacts && <Filter />}        
+        {!loading && contacts.length > 0 && <ContactList />}
       </PhoneBookStyled>
     </>
   );
