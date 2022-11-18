@@ -11,20 +11,18 @@ import { ContactList } from 'components/ContactsList/ContactsList';
 
 const Contacts = () => {
   const contacts = useSelector(getFilteredContacts);
-  const { loading, error } = useSelector(getState);
+  const { loading } = useSelector(getState);
 
   return (
     <>
       <PhoneBookStyled>
         <ContactForm />
-
+        <Filter />
         {!loading && contacts.length > 0 && (
           <>
-            <Filter />
             <ContactList />
           </>
         )}
-        {error && <p>oops, something went wrong</p>}
       </PhoneBookStyled>
     </>
   );

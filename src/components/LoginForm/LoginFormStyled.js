@@ -10,8 +10,8 @@ padding: 25px;
   & input {
     margin: 0 0 5px 10px;
   }
-  & button {
-    
+
+  & button {    
     padding: 5px 8px;
     margin: 20px 0 10px;    
     width: 128px;
@@ -24,8 +24,13 @@ padding: 25px;
     transition: background-color 250ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     svg {
-    margin: 0 0 0 4px;
-  }
+      position: relative;
+      left: 5px;
+      top: 3px;
+
+      width: 16px;
+      height: 15px;
+    }
   }
   
   & button:hover {

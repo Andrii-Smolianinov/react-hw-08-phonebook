@@ -47,7 +47,7 @@ const ContactForm = () => {
       </h1>
       <Form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="nameInput">Name </label>
+          <label htmlFor="nameInput">Name</label>
           <input
             type="text"
             name="name"
@@ -74,12 +74,13 @@ const ContactForm = () => {
             required
           />
         </div>
-        {isLoading && (
+        {isLoading ? (
           <button type="submit">
             <LoaderButton />
           </button>
+        ) : (
+          <button type="submit">Add contact</button>
         )}
-        {!isLoading && <button type="submit">Add contact</button>}
       </Form>
     </MainFormDiv>
   );
