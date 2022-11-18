@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import {
   getFilteredContacts,
   getState,
-  getContacts
+  selectContacts,
 } from 'redux/contacts/contactsSelectors';
 
 import { PhoneBookStyled } from 'components/PhoneBookStyled';
@@ -12,17 +12,15 @@ import { ContactList } from 'components/ContactsList/ContactsList';
 
 const Contacts = () => {
   const contacts = useSelector(getFilteredContacts);
-  const isContacts = useSelector(getContacts);
+  const isContacts = useSelector(selectContacts);
   const { loading } = useSelector(getState);
 
   return (
-    <>
-      <PhoneBookStyled>
-        <ContactForm />
-        {isContacts && <Filter />}        
-        {!loading && contacts.length > 0 && <ContactList />}
-      </PhoneBookStyled>
-    </>
+    <PhoneBookStyled>
+      <ContactForm />
+      {isContacts && <Filter />}
+      {!loading && contacts.length > 0 && <ContactList />}
+    </PhoneBookStyled>
   );
 };
 
